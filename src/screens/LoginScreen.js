@@ -16,13 +16,15 @@ import * as userActions from "../store/UserAction";
 import * as SecureStore from "expo-secure-store";
 import * as Permissions from "expo-permissions";
 
+const validationSchema = Yup.object().shape({
+  email: Yup.string().required().email("well that's not an email"),
+  password: Yup.string().required().min(2, "pretty sure this will be hacked"),
+});
+
 const LoginScreen = (props) => {
   const [isSignUp, setisSignUp] = useState(false);
   const dispatch = useDispatch();
-  const validationSchema = Yup.object().shape({
-    email: Yup.string().required().email("well that's not an email"),
-    password: Yup.string().required().min(2, "pretty sure this will be hacked"),
-  });
+  
 
   const autoLogin = useCallback(async () => {
     let authInfo = await SecureStore.getItemAsync("credentials");
@@ -53,9 +55,9 @@ const LoginScreen = (props) => {
           <Image source={require("../../assets/nos.png")} style={styles.logo} />
         </View>
         <View style={styles.form}>
-          <Formik
+        <Formik
             onSubmit={(values) => authenticateUser(values)}
-            initialValues={{ email: "", password: "" }}
+            initialValues={{ email: "a", password: "b" }}
             validationSchema={validationSchema}
           >
             {(props) => {
