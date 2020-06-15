@@ -10,7 +10,7 @@ export const authenticateUser = (email, password, isSignUp) => {
       command = "signUp";
     }
 
-    const loginUrl = `https://identitytoolkit.googleapis.com/v1/accounts:${command}?key=AIzaSyCRkVJiC064BBLA0wbqwUBqarU0mM2q4hw`;
+    const loginUrl = `https://identitytoolkit.googleapis.com/v1/accounts:${command}?key=AIzaSyDVTepv083P9XL8KiusijuKjugI07sJlpg`;
 
     const response = await fetch(loginUrl, {
       method: "POST",
@@ -31,7 +31,6 @@ export const authenticateUser = (email, password, isSignUp) => {
     const expiryTime = new Date();
     expiryTime.setSeconds(expiryTime.getSeconds() + expiresIn);
     const authInfo = JSON.stringify({
-      email,
       idToken,
       localId,
       expiryTime: expiryTime.toString(),
@@ -43,18 +42,16 @@ export const authenticateUser = (email, password, isSignUp) => {
       token: idToken,
       userId: localId,
       expiryTime,
-      email,
     });
   };
 };
 
-export const autoLogin = (token, userId, expiryTime, email) => {
+export const autoLogin = (token, userId, expiryTime) => {
   return {
     type: USER_LOGIN,
     token,
     userId,
     expiryTime,
-    email,
   };
 };
 

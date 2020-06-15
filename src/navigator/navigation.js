@@ -7,9 +7,8 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 import LoginScreen from "../src/screens/LoginScreen";
-import { TouchableOpacity } from "react-native-gesture-handler";
 import HomeScreen from "../src/screens/HomeScreen";
-import BlogScreen from "../src/screens/BlogScreen";
+import EventScreen from "../src/screens/EventScreen";
 
 const VirusStack = createStackNavigator();
 const UserStack = createStackNavigator();
@@ -32,7 +31,7 @@ const MyVirusStack = (props) => {
   return (
     <VirusStack.Navigator screenOptions={defaultNavigatorOption}>
       <VirusStack.Screen name="List" component={HomeScreen} />
-      <VirusStack.Screen name="Details" component={BlogScreen} />
+      <VirusStack.Screen name="Details" component={EventScreen} />
     </VirusStack.Navigator>
   );
 };
@@ -40,7 +39,7 @@ const MyVirusStack = (props) => {
 const MyUserStack = (props) => {
   return (
     <UserStack.Navigator screenOptions={defaultNavigatorOption}>
-      <UserStack.Screen name="User" component={BlogScreen} />
+      <UserStack.Screen name="User" component={EventScreen} />
     </UserStack.Navigator>
   );
 };
