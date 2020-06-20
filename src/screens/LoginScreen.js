@@ -24,7 +24,6 @@ const validationSchema = Yup.object().shape({
 const LoginScreen = (props) => {
   const [isSignUp, setisSignUp] = useState(false);
   const dispatch = useDispatch();
-  
 
   const autoLogin = useCallback(async () => {
     let authInfo = await SecureStore.getItemAsync("credentials");
@@ -52,10 +51,10 @@ const LoginScreen = (props) => {
     <KeyboardAvoidingView style={styles.LoginScreen}>
       <ScrollView>
         <View style={styles.logoContainer}>
-          <Image source={require("../../assets/nos.png")} style={styles.logo} />
+          <Image source={require("../../assets/cod.png")} style={styles.logo} />
         </View>
         <View style={styles.form}>
-        <Formik
+          <Formik
             onSubmit={(values) => authenticateUser(values)}
             initialValues={{ email: "a", password: "b" }}
             validationSchema={validationSchema}
@@ -75,7 +74,7 @@ const LoginScreen = (props) => {
                     <Button
                       onPress={() => setisSignUp((state) => !state)}
                       title={isSignUp ? "Voltar" : "Registrar-se"}
-                      color="orange"
+                      color="#9b51e0"
                     />
                   </View>
                 </MyForm>
