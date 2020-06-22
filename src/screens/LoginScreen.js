@@ -44,6 +44,7 @@ const LoginScreen = (props) => {
     const { email, password } = values;
     try {
       dispatch(userActions.authenticateUser(email, password, isSignUp));
+      await props.navigation.navigate("Home");
     } catch (error) {}
   };
 

@@ -23,6 +23,7 @@ export const authenticateUser = (email, password, isSignUp) => {
     });
 
     const result = await response.json();
+    console.log(result); 
 
     if (result.error) {
       console.log(result.error);
