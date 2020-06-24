@@ -1,86 +1,65 @@
-import * as React from "react";
-import { useSelector } from "react-redux";
-
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
-import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Ionicons } from "@expo/vector-icons";
-import LoginScreen from "../src/screens/LoginScreen";
-import HomeScreen from "../src/screens/HomeScreen";
-import EventScreen from "../src/screens/EventScreen";
-
-const VirusStack = createStackNavigator();
-const UserStack = createStackNavigator();
+import { createStackNavigator } from "@react-navigation/stack";
+import HomeScreen from "../screens/HomeScreen";
+import LoginScreen from "../screens/LoginScreen";
+import EventScreen from "../screens/EventScreen";
+import OngScreen from "../screens/OngScreen";
+import { useSelector, useDispatch } from "react-redux";
 
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
+
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import OngSubscribeScreen from "../screens/OngSubscribeScreen";
 
 const Drawer = createDrawerNavigator();
 
-const defaultNavigatorOption = (navigation) => {
-  return {
-    headerTintColor: "white",
-    headerStyle: { backgroundColor: "brown" },
-    headerRight: () => {
-      return <Ionicons name="ios-add" size={25} color="white" />;
-    },
-  };
-};
+const HomeLoginStack = (props) => (
+  <Stack.Navigator>
+    <Stack.Screen name="Home" component={HomeScreen} />
+  </Stack.Navigator>
+);
 
-const MyVirusStack = (props) => {
-  return (
-    <VirusStack.Navigator screenOptions={defaultNavigatorOption}>
-      <VirusStack.Screen name="List" component={HomeScreen} />
-      <VirusStack.Screen name="Details" component={EventScreen} />
-    </VirusStack.Navigator>
-  );
-};
+const EventosStack = (props) => (
+  <Stack.Navigator>
+    <Stack.Screen name="Eventos" component={EventScreen} />
+  </Stack.Navigator>
+);
 
-const MyUserStack = (props) => {
-  return (
-    <UserStack.Navigator screenOptions={defaultNavigatorOption}>
-      <UserStack.Screen name="User" component={EventScreen} />
-    </UserStack.Navigator>
-  );
-};
+const OngStack = (props) => (
+  <Stack.Navigator>
+    <Stack.Screen name="Ongs" component={OngScreen} />
+    <Stack.Screen name="OngSubscribe" component={OngSubscribeScreen} />
+  </Stack.Navigator>
+);
 
-const MyTabs = (props) => {
-  return (
-    <Tab.Navigator
-      screenOptions={({ route }) => ({
-        tabBarIcon: ({ focused, color, size }) => {
-          let iconName;
-
-          if (route.name === "Users") {
-            iconName = "ios-contact";
-          } else if (route.name === "Virus") {
-            iconName = "ios-cog";
-          }
-
-          // You can return any component that you like here!
-          return <Ionicons name={iconName} size={size} color={color} />;
-        },
-      })}
-    >
-      <Tab.Screen name="Users" component={MyUserStack} />
-      <Tab.Screen name="Virus" component={MyVirusStack} />
-    </Tab.Navigator>
-  );
-};
+const TabsNavigator = (props) => (
+  <Tab.Navigator>
+    <Tab.Screen name="Home" component={HomeLoginStack} />
+    <Tab.Screen name="Eventos" component={EventosStack} />
+    <Tab.Screen name="Ongs" component={OngStack} />
+  </Tab.Navigator>
+);
 
 const Main = () => {
-  const isLogged = useSelector((state) => state.users.token);
+  const dispatch = useDispatch();
+  const token = useSelector((state) => state.user.token);
   return (
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName="Login">
-        {isLogged ? (
-          <Drawer.Screen name="Home" component={MyTabs} />
+      <Stack.Navigator>
+        {!token ? (
+          <Stack.Screen name="Entrar" component={LoginScreen} />
         ) : (
-          <Drawer.Screen name="Login" component={LoginScreen} />
+          <Stack.Screen name="Home" component={TabsNavigator} />
         )}
-      </Drawer.Navigator>
+      </Stack.Navigator>
     </NavigationContainer>
   );
 };
 
 export default Main;
+
+const styles = StyleSheet.create({});
