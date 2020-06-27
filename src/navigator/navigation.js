@@ -12,6 +12,8 @@ import Incidents from "../screens/Eventos/EventScreen";
 import Detail from "../screens/Detail/Detail"
 import { useSelector, useDispatch } from "react-redux";
 
+import * as userActions from '../store/UserAction';
+
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
@@ -30,7 +32,9 @@ export const CodNavigator = () => {
           <View style={{ flex: 1, paddingTop: 20 }}>
             <SafeAreaView forceInset={{ top: 'always', horizontal: 'never' }}>
               <DrawerItemList {...props} />
-              <TouchableOpacity onPress={() => {}}>
+              <TouchableOpacity onPress={() => {
+                dispatch(userActions.logout())
+              }}>
               <View style={{flexDirection: 'row', justifyContent: 'space-around',}}>
                 <Text>Logout</Text>
                 <MaterialIcons name="exit-to-app" color={"purple"} size={25} />
@@ -45,7 +49,7 @@ export const CodNavigator = () => {
       }}
     >
       <Drawer.Screen
-        name="Home"
+        name="Cod"
         component={TabsNavigator}
         options={{
          // drawerIcon: props => (
@@ -94,7 +98,7 @@ const Main = () => {
         {!token ? (
           <Stack.Screen name="Entrar" component={LoginScreen} />
         ) : (
-            <Stack.Screen name="Home" component={CodNavigator} />
+            <Stack.Screen name="Cod" component={CodNavigator} />
           )}
       </Stack.Navigator>
     </NavigationContainer>
