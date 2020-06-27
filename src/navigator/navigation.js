@@ -2,11 +2,12 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { createStackNavigator } from "@react-navigation/stack";
+import { createStackNavigator, CardStyleInterpolators } from "@react-navigation/stack";
 import HomeScreen from "../screens/HomeScreen";
 import LoginScreen from "../screens/LoginScreen";
-import EventScreen from "../screens/EventScreen";
 import OngScreen from "../screens/OngScreen";
+import Incidents from "../screens/Eventos/EventScreen";
+import Detail from "../screens/Detail/Detail"
 import { useSelector, useDispatch } from "react-redux";
 
 const Tab = createBottomTabNavigator();
@@ -18,14 +19,15 @@ import OngSubscribeScreen from "../screens/OngSubscribeScreen";
 const Drawer = createDrawerNavigator();
 
 const HomeLoginStack = (props) => (
-  <Stack.Navigator>
+  <Stack.Navigator screenOptions={{headerShown: false}}>
     <Stack.Screen name="Home" component={HomeScreen} />
   </Stack.Navigator>
 );
 
 const EventosStack = (props) => (
-  <Stack.Navigator>
-    <Stack.Screen name="Eventos" component={EventScreen} />
+  <Stack.Navigator screenOptions={{headerShown: false}}>
+    <Stack.Screen name="Eventos" component={Incidents} />
+    <Stack.Screen name="Detail" component={Detail} />
   </Stack.Navigator>
 );
 
@@ -49,7 +51,7 @@ const Main = () => {
   const token = useSelector((state) => state.user.token);
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator screenOptions={{headerShown: false}}>
         {!token ? (
           <Stack.Screen name="Entrar" component={LoginScreen} />
         ) : (
