@@ -19,7 +19,7 @@ const OngSubscribeScreen = props => {
             <Text>{ong.title}</Text>
             <Image style={styles.image} source={{ uri: ong.imageUrl }} />
             <Text>Nos siga para conhecer mais sobre a gente!</Text>
-            <Button title="Follow Me!!!" color="blue" />
+            <Button title="Follow Me!!!" color="#9b51e0" />
         </View>
     );
 }

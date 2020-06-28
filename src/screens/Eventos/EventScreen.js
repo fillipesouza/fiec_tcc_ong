@@ -61,7 +61,7 @@ export default function Incidents() {
     <Container>
       <Header>
       <HeaderText>
-          Total de <HeaderTextBold>{total} casos</HeaderTextBold>
+          Total de <HeaderTextBold>{total} eventos</HeaderTextBold>
         </HeaderText>
       </Header>
 
