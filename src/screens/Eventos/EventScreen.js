@@ -18,6 +18,7 @@ import {
   ButtonTouch,
   DetailsButtonText,
 } from './styles'
+import { TouchableOpacity } from 'react-native-gesture-handler'
 
 
 export default function Incidents() {
@@ -29,7 +30,7 @@ export default function Incidents() {
   const navigation = useNavigation()
 
   function navigateToDetail(incident) {
-    navigation.navigate('Detail', { incident })
+    navigation.navigate('Detail', { incident }) 
   }
 
   async function loadIncidents() {
@@ -60,6 +61,10 @@ export default function Incidents() {
   return (
     <Container>
       <Header>
+      <TouchableOpacity onPress={() => {navigation.openDrawer(); }}>
+        <Feather name="align-justify" size={28} color="#9b51e0" />
+      </TouchableOpacity>
+
       <HeaderText>
           Total de <HeaderTextBold>{total} eventos</HeaderTextBold>
         </HeaderText>

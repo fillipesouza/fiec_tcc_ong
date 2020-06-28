@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Feather } from "@expo/vector-icons";
-import Main from "../navigator/navigation";
 import {
   ImageBackground,
   TouchableOpacity,
@@ -14,15 +13,21 @@ import {
 } from "react-native";
 import { Link } from "@react-navigation/native";
 import Constants from "expo-constants";
+import { useNavigation } from '@react-navigation/native';
+
 
 const HomeScreen = () => {
+const navigation = useNavigation();
+
   return (
     <ScrollView>
       <View style={styles.container}>
         <View style={styles.header}>
-          <TouchableOpacity>
-            <Feather name="align-justify" size={28} color="#9b51e0" />
-          </TouchableOpacity>
+
+        <TouchableOpacity onPress={() => {navigation.openDrawer(); }}>
+        <Feather name="align-justify" size={28} color="#9b51e0" />
+      </TouchableOpacity>
+
           <Text style={styles.texto}>Home</Text>
         </View>
         <Image source={require("../../assets/cod.png")} style={styles.logo} />
@@ -33,22 +38,33 @@ const HomeScreen = () => {
         <View style={styles.firstContent}>
           <Text style={styles.texto}>"CONECTANDO ONGS E DOADORES"</Text>
         </View>
-        <Button
-          style={styles.botao1}
-          title="Facebook!"
+        
+        <View style={styles.rodape}>
+          <TouchableOpacity
+          style={styles.linkar}
           onPress={() =>
             Linking.openURL("https://www.facebook.com/AplicativoCod/")
           }
-        />
-        <Button
-          style={styles.botao2}
+          >
+        <Feather name="facebook" size={28} color="#9b51e0" style={styles.icon} />
+         </TouchableOpacity>
+
+
+
+        <TouchableOpacity
+          style={styles.linkar2}
           title="Instagram!"
           onPress={() =>
             Linking.openURL(
               "https://instagram.com/conectando.ongs.e.doadores?igshid=ryaqyqiadzvc"
             )
           }
-        />
+        >
+        <Feather name="instagram" size={28} color="#9b51e0" style={styles.icon} />
+        
+        </TouchableOpacity>
+        </View>
+
       </View>
     </ScrollView>
   );
@@ -94,11 +110,32 @@ const styles = StyleSheet.create({
     color: "#737380",
   },
 
-  botao1: {
-    color: "#737380",
+  linkar: {
+    height: 40,
+    width: 80,
+    borderRadius: 10.
   },
 
-  botao2: {
-    color: "purple",
+  linkar2: {
+    height: 40,
+    borderRadius: 10,
+    width: 80,
+    
+
+  },
+
+
+  rodape: {
+    alignItems: "center",
+    justifyContent: "space-around",
+    flexDirection: "row",
+
+  },
+
+  icon: {
+    alignItems: "center",
+    justifyContent: "center",
+    marginLeft: 27,
+    marginTop: 8,
   },
 });

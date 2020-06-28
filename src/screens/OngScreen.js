@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux';
+
 import {
   StyleSheet,
   Text,
@@ -30,11 +31,12 @@ const OngScreen = props => {
   }, [loadPage])
 
   if (loading) {
-      return <View style={styles.container}><ActivityIndicator size="large" color="#0000ff" /></View>
+      return <View style={styles.container}><ActivityIndicator size="large" color="#f1f1f1" /></View>
   }
 
   return (
       <ScrollView>
+
           <View style={styles.container}>
               <FlatList
                   data={ongList}

@@ -63,7 +63,7 @@ const LoginScreen = (props) => {
             {(props) => {
               return (
                 <MyForm>
-                  <MyInput label="E-mail" name="email" type="email" />
+                  <MyInput style={styles.input} label="E-mail" name="email" type="email" />
                   <MyInput label="Senha" name="password" type="password" />
                   <View style={styles.formButtons}>
                     <Button
@@ -110,4 +110,5 @@ const styles = StyleSheet.create({
     marginTop: 10,
     borderWidth: 1,
   },
+  
 });
