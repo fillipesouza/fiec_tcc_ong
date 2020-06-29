@@ -83,7 +83,7 @@ export default function Incidents() {
           <Incident>
 
           <IncidentProperty>IMAGEM DO EVENTO:</IncidentProperty>
-          <IncidentValue> <Image style={styles.stretch} source={require('../../assets/cod.png')} /> </IncidentValue>
+          <IncidentValue> <Image style={styles.stretch} source={{uri: "http://52.67.137.119:3000"}}   /> </IncidentValue>
 
             <IncidentProperty>ONG:</IncidentProperty>
             <IncidentValue>{incident.name}</IncidentValue>
