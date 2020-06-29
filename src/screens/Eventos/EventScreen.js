@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Feather } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
-import { Image } from 'react-native'
+import { Image, StyleSheet  } from 'react-native'
 import api from '../../services/api'
 
 import {
@@ -83,7 +83,7 @@ export default function Incidents() {
           <Incident>
 
           <IncidentProperty>IMAGEM DO EVENTO:</IncidentProperty>
-          <IncidentValue> <Image  source={{uri: `http://52.67.137.119:3333/public-images/f_${incident.incidentimagem}.jpg`}} /> </IncidentValue>
+          <IncidentValue> <Image style={styles.stretch} source={require('../../assets/cod.png')} /> </IncidentValue>
 
             <IncidentProperty>ONG:</IncidentProperty>
             <IncidentValue>{incident.name}</IncidentValue>
@@ -104,3 +104,13 @@ export default function Incidents() {
     </Container>
   )
 }
+
+
+const styles = StyleSheet.create({
+  stretch: {
+    height: 150,
+    width: 200,
+    marginBottom: 250,
+    borderRadius: 10,
+  }
+})
