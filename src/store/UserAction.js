@@ -49,7 +49,7 @@ export const authenticateUser = (email, password, isSignUp) => {
   };
 };
 
-// qual tela vc quer que apareça email? 
+
 
 export const autoLogin = (token, userId, expiryTime, email) => {
   return {
