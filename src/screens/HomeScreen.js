@@ -35,7 +35,7 @@ const HomeScreen = () => {
         <Image source={require("../../assets/cod.png")} style={styles.logo} />
 
         <View style={styles.firstContent}>
-          <Text style={styles.texto}>"Conectando Ongs e doadores"</Text>
+          <Text style={styles.texto}>"Conectando Ongs     e doadores"</Text>
         </View>
         <View style={styles.firstContent}>
           <Button
@@ -46,6 +46,8 @@ const HomeScreen = () => {
             }
           />
         </View>
+
+
 
         <View style={styles.rodape}>
           <TouchableOpacity
@@ -120,8 +122,10 @@ const styles = StyleSheet.create({
   texto: {
     marginTop: 8,
     fontSize: 20,
-    marginBottom: 24,
+    marginBottom: 14,
     color: "#737380",
+    textAlign: "center"
+
   },
 
   linkar: {
