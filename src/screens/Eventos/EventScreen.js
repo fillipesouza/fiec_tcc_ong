@@ -83,7 +83,7 @@ export default function Incidents() {
           <Incident>
 
           <IncidentProperty>IMAGEM DO EVENTO:</IncidentProperty>
-          <IncidentValue> <Image  source={{uri: `http://192.168.15.13:3333/public-images/f_${incident.incidentimagem}.jpg`}} /> </IncidentValue>
+          <IncidentValue> <Image  source={{uri: `http://52.67.137.119:3333/public-images/f_${incident.incidentimagem}.jpg`}} /> </IncidentValue>
 
             <IncidentProperty>ONG:</IncidentProperty>
             <IncidentValue>{incident.name}</IncidentValue>
