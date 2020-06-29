@@ -21,8 +21,8 @@ const OngSubscribeScreen = (props) => {
       <Image style={styles.image} source={{ uri: ong.imageUrl }} />
       <Text>Conheça nosso site!</Text>
       <Button
-        title="Aperte aqui!!!"
-        color="orange"
+        title="Ver mais"
+        color="#9b51e0"
         onPress={() =>
           Linking.openURL("https://rotaryclubindaiatuba.wordpress.com/")
         }
