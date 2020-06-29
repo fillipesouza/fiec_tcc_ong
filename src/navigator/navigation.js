@@ -1,23 +1,37 @@
 import React from "react";
-import { StyleSheet, Text, View, SafeAreaView, Button, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  Button,
+  TouchableOpacity,
+} from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { createStackNavigator, CardStyleInterpolators } from "@react-navigation/stack";
+import {
+  createStackNavigator,
+  CardStyleInterpolators,
+} from "@react-navigation/stack";
 
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import HomeScreen from "../screens/HomeScreen";
 import LoginScreen from "../screens/LoginScreen";
 import OngScreen from "../screens/OngScreen";
 import Incidents from "../screens/Eventos/EventScreen";
-import Detail from "../screens/Detail/Detail"
+import Detail from "../screens/Detail/Detail";
 import { useSelector, useDispatch } from "react-redux";
 
-import * as userActions from '../store/UserAction';
+import * as userActions from "../store/UserAction";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
-import { createDrawerNavigator, DrawerItem, DrawerItemList } from "@react-navigation/drawer";
+import {
+  createDrawerNavigator,
+  DrawerItem,
+  DrawerItemList,
+} from "@react-navigation/drawer";
 import OngSubscribeScreen from "../screens/OngSubscribeScreen";
 
 const Drawer = createDrawerNavigator();
@@ -27,39 +41,52 @@ export const CodNavigator = () => {
 
   return (
     <Drawer.Navigator
-      drawerContent={props => {
+      drawerContent={(props) => {
         return (
           <View style={{ flex: 1, paddingTop: 20 }}>
-            <SafeAreaView forceInset={{ top: 'always', horizontal: 'never' }}>
+            <SafeAreaView forceInset={{ top: "always", horizontal: "never" }}>
               <DrawerItemList {...props} />
-              <TouchableOpacity onPress={() => {
-                dispatch(userActions.logout())
-              }}>
-              <View style={{flexDirection: 'row', justifyContent: 'space-around',}}>
-                <Text>Logout</Text>
-                <MaterialIcons name="exit-to-app" color={"purple"} size={25} />
-              </View>
+              <TouchableOpacity
+                onPress={() => {
+                  dispatch(userActions.logout());
+                }}
+              >
+                <View
+                  style={{
+                    flexDirection: "row",
+                    justifyContent: "space-around",
+                  }}
+                >
+                  <Text>Logout</Text>
+                  <MaterialIcons
+                    name="exit-to-app"
+                    color={"purple"}
+                    size={25}
+                  />
+                </View>
               </TouchableOpacity>
             </SafeAreaView>
           </View>
         );
       }}
       drawerContentOptions={{
-        activeTintColor: "blue"
+        activeTintColor: "blue",
       }}
     >
       <Drawer.Screen
         name="Cod"
         component={TabsNavigator}
-        options={{
-         // drawerIcon: props => (
-         //   <MaterialIcons name="exit-to-app" color={"purple"} size={25} />
-         // )
-        }}
+        options={
+          {
+            // drawerIcon: props => (
+            //   <MaterialIcons name="exit-to-app" color={"purple"} size={25} />
+            // )
+          }
+        }
       />
     </Drawer.Navigator>
-  )
-}
+  );
+};
 
 const HomeLoginStack = (props) => (
   <Stack.Navigator screenOptions={{ headerShown: false }}>
@@ -98,8 +125,8 @@ const Main = () => {
         {!token ? (
           <Stack.Screen name="Entrar" component={LoginScreen} />
         ) : (
-            <Stack.Screen name="Cod" component={CodNavigator} />
-          )}
+          <Stack.Screen name="Cod" component={CodNavigator} />
+        )}
       </Stack.Navigator>
     </NavigationContainer>
   );

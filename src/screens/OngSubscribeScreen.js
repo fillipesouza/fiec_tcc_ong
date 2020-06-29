@@ -19,7 +19,7 @@ const OngSubscribeScreen = (props) => {
     <View style={styles.container}>
       <Text>{ong.title}</Text>
       <Image style={styles.image} source={{ uri: ong.imageUrl }} />
-      <Text>Conheça nosso site!</Text>
+      <Text style={styles.texto}>Conheça nosso site!</Text>
       <Button
         title="Ver mais"
         color="#9b51e0"
@@ -43,5 +43,11 @@ const styles = StyleSheet.create({
   image: {
     width: "100%",
     height: 300,
+  },
+  texto: {
+    marginTop: 8,
+    fontSize: 20,
+    marginBottom: 24,
+    color: "#737380",
   },
 });
