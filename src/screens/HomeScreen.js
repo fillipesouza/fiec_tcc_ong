@@ -13,20 +13,22 @@ import {
 } from "react-native";
 import { Link } from "@react-navigation/native";
 import Constants from "expo-constants";
-import { useNavigation } from '@react-navigation/native';
-
+import { useNavigation } from "@react-navigation/native";
 
 const HomeScreen = () => {
-const navigation = useNavigation();
+  const navigation = useNavigation();
 
   return (
     <ScrollView>
       <View style={styles.container}>
         <View style={styles.header}>
-
-        <TouchableOpacity onPress={() => {navigation.openDrawer(); }}>
-        <Feather name="align-justify" size={28} color="#9b51e0" />
-      </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.openDrawer();
+            }}
+          >
+            <Feather name="align-justify" size={28} color="#9b51e0" />
+          </TouchableOpacity>
 
           <Text style={styles.texto}>Home</Text>
         </View>
@@ -36,35 +38,47 @@ const navigation = useNavigation();
           <Text style={styles.texto}>"Conectando Ongs e doadores"</Text>
         </View>
         <View style={styles.firstContent}>
-          <Text style={styles.texto}>"CONECTANDO ONGS E DOADORES"</Text>
+          <Button
+            title="Blog"
+            color="#9b51e0"
+            onPress={() =>
+              Linking.openURL("https://rotaryclubindaiatuba.wordpress.com/")
+            }
+          />
         </View>
-        
+
         <View style={styles.rodape}>
           <TouchableOpacity
-          style={styles.linkar}
-          onPress={() =>
-            Linking.openURL("https://www.facebook.com/AplicativoCod/")
-          }
+            style={styles.linkar}
+            onPress={() =>
+              Linking.openURL("https://www.facebook.com/AplicativoCod/")
+            }
           >
-        <Feather name="facebook" size={28} color="#9b51e0" style={styles.icon} />
-         </TouchableOpacity>
+            <Feather
+              name="facebook"
+              size={28}
+              color="#9b51e0"
+              style={styles.icon}
+            />
+          </TouchableOpacity>
 
-
-
-        <TouchableOpacity
-          style={styles.linkar2}
-          title="Instagram!"
-          onPress={() =>
-            Linking.openURL(
-              "https://instagram.com/conectando.ongs.e.doadores?igshid=ryaqyqiadzvc"
-            )
-          }
-        >
-        <Feather name="instagram" size={28} color="#9b51e0" style={styles.icon} />
-        
-        </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.linkar2}
+            title="Instagram!"
+            onPress={() =>
+              Linking.openURL(
+                "https://instagram.com/conectando.ongs.e.doadores?igshid=ryaqyqiadzvc"
+              )
+            }
+          >
+            <Feather
+              name="instagram"
+              size={28}
+              color="#9b51e0"
+              style={styles.icon}
+            />
+          </TouchableOpacity>
         </View>
-
       </View>
     </ScrollView>
   );
@@ -113,23 +127,19 @@ const styles = StyleSheet.create({
   linkar: {
     height: 40,
     width: 80,
-    borderRadius: 10.
+    borderRadius: 10,
   },
 
   linkar2: {
     height: 40,
     borderRadius: 10,
     width: 80,
-    
-
   },
-
 
   rodape: {
     alignItems: "center",
     justifyContent: "space-around",
     flexDirection: "row",
-
   },
 
   icon: {
