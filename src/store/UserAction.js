@@ -23,7 +23,7 @@ export const authenticateUser = (email, password, isSignUp) => {
     });
 
     const result = await response.json();
-    console.log(result); 
+    console.log(result);
 
     if (result.error) {
       console.log(result.error);
@@ -32,6 +32,7 @@ export const authenticateUser = (email, password, isSignUp) => {
     const expiryTime = new Date();
     expiryTime.setSeconds(expiryTime.getSeconds() + expiresIn);
     const authInfo = JSON.stringify({
+      email,
       idToken,
       localId,
       expiryTime: expiryTime.toString(),
@@ -43,16 +44,20 @@ export const authenticateUser = (email, password, isSignUp) => {
       token: idToken,
       userId: localId,
       expiryTime,
+      email
     });
   };
 };
 
-export const autoLogin = (token, userId, expiryTime) => {
+// qual tela vc quer que apareça email? 
+
+export const autoLogin = (token, userId, expiryTime, email) => {
   return {
     type: USER_LOGIN,
     token,
     userId,
     expiryTime,
+    email
   };
 };
 

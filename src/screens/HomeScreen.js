@@ -14,8 +14,11 @@ import {
 import { Link } from "@react-navigation/native";
 import Constants from "expo-constants";
 import { useNavigation } from "@react-navigation/native";
+import { useSelector } from "react-redux";
+
 
 const HomeScreen = () => {
+  const email = useSelector(state => state.user.email)
   const navigation = useNavigation();
 
   return (
@@ -35,7 +38,11 @@ const HomeScreen = () => {
         <Image source={require("../../assets/cod.png")} style={styles.logo} />
 
         <View style={styles.firstContent}>
-          <Text style={styles.texto}>"Conectando Ongs     e doadores"</Text>
+          <Text style={styles.texto}> Usuario logado:{email}</Text>
+        </View>
+
+        <View style={styles.firstContent}>
+          <Text style={styles.texto}>"Conectando Ongs    e doadores"</Text>
         </View>
         <View style={styles.firstContent}>
           <Button
@@ -46,7 +53,6 @@ const HomeScreen = () => {
             }
           />
         </View>
-
 
 
         <View style={styles.rodape}>
