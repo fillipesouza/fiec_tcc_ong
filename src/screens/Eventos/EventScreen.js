@@ -82,7 +82,7 @@ export default function Incidents() {
         renderItem={({ item: incident }) => (
           <Incident>
 
-          <IncidentProperty>IMAGEM DO EVENTO: thumb_${incident.incidentimagem}.jpg</IncidentProperty>
+          <IncidentProperty>IMAGEM DO EVENTO:</IncidentProperty>
           <IncidentValue> <Image style={styles.stretch} source={{uri: `http://54.233.179.164:3333/public-images/thumb_${incident.incidentimagem}.jpg`}}   /> </IncidentValue>
 
             <IncidentProperty>ONG:</IncidentProperty>
