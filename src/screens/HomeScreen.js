@@ -14,9 +14,10 @@ import {
 import { Link } from "@react-navigation/native";
 import Constants from "expo-constants";
 import { useNavigation } from '@react-navigation/native';
-
+import {useSelector} from "react-redux";
 
 const HomeScreen = () => {
+const email = useSelector(state => state.user.email)
 const navigation = useNavigation();
 
   return (
@@ -33,11 +34,13 @@ const navigation = useNavigation();
         <Image source={require("../../assets/cod.png")} style={styles.logo} />
 
         <View style={styles.firstContent}>
-          <Text style={styles.texto}>"Conectando Ongs e doadores"</Text>
+          <Text style={styles.textouser}> Logado como: {email} </Text>
         </View>
+
         <View style={styles.firstContent}>
-          <Text style={styles.texto}>"CONECTANDO ONGS E DOADORES"</Text>
+            <Text style={styles.help}>Sua ajuda é nossa força!</Text>
         </View>
+        
         
         <View style={styles.rodape}>
           <TouchableOpacity
@@ -107,7 +110,7 @@ const styles = StyleSheet.create({
     marginTop: 8,
     fontSize: 20,
     marginBottom: 24,
-    color: "#737380",
+    color: "#9b51e0"
   },
 
   linkar: {
@@ -129,6 +132,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-around",
     flexDirection: "row",
+    position: "relative",
+    marginTop: 90,
 
   },
 
@@ -138,4 +143,35 @@ const styles = StyleSheet.create({
     marginLeft: 27,
     marginTop: 8,
   },
+
+  mini: {
+    padding: 24,
+    borderRadius: 8,
+    backgroundColor: "#9b51e0",
+    marginBottom: 16,
+    height: 80,
+  },
+
+  texto2: {
+    marginTop: 0,
+    fontSize: 24,
+    marginBottom: 24,
+    color: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+    marginLeft: 50
+  },
+
+  textouser: {
+    textAlign: "center",
+    fontFamily: "Roboto",
+    fontSize: 15,
+  },
+
+  help: {
+    textAlign: "center",
+    fontFamily: "Roboto",
+    fontSize: 28,
+    color: "#9b51e0"
+  }
 });

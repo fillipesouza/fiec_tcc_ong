@@ -43,6 +43,7 @@ export const authenticateUser = (email, password, isSignUp) => {
       token: idToken,
       userId: localId,
       expiryTime,
+      email
     });
   };
 };
@@ -53,6 +54,7 @@ export const autoLogin = (token, userId, expiryTime) => {
     token,
     userId,
     expiryTime,
+    email
   };
 };
 

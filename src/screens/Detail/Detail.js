@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, Linking } from 'react-native'
+import { Image, Linking, ScrollView } from 'react-native'
 import { Feather } from '@expo/vector-icons'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import * as MailComposer from 'expo-mail-composer'
@@ -48,6 +48,7 @@ export default function Detail() {
   }
 
   return (
+    <ScrollView>
     <Container>
       <Header>
         <ButtonTouch onPress={navigateBack}>
@@ -85,5 +86,6 @@ export default function Detail() {
         </Actions>
       </ContactBox>
     </Container>
+    </ScrollView>
   )
 }

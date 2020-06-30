@@ -4,7 +4,10 @@ const initialState = {
   token: null,
   userId: null,
   expiryTime: null,
+  email: null
 };
+
+
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -14,6 +17,7 @@ export default (state = initialState, action) => {
         ...state,
         token: action.token,
         userId: action.userId,
+        email: action.email
       };
     case USER_LOGOUT:
       return {
@@ -21,6 +25,7 @@ export default (state = initialState, action) => {
         token: null,
         userId: null,
         expiryTime: null,
+        email: null
       };
     default:
       return state;

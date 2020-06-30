@@ -3,13 +3,11 @@
     "name": "COD",
     "slug": "fiec_tcc_ong",
     "platforms": [
-      "ios",
-      "android",
-      "web"
+      "android"
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/codzin.png",
     "splash": {
       "image": "./assets/cod.png",
       "resizeMode": "contain",
@@ -18,11 +16,9 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true
+    
+    "android": {
+      "package": "com.fiec.cod"
     }
   }
 }
