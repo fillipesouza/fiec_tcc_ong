@@ -17,11 +17,11 @@ const OngSubscribeScreen = (props) => {
   const { ong } = props.route.params;
   return (
     <View style={styles.container}>
-      <Text>{ong.title}</Text>
+      <Text style={styles.title} >{ong.title} </Text>
       <Image style={styles.image} source={{ uri: ong.imageUrl }} />
-      <Text style={styles.texto}>Conheça nosso site!</Text>
+      <Text style={styles.texto}>Saiba mais!</Text>
       <Button
-        title="Ver mais"
+        title="Clique aqui!"
         color="#9b51e0"
         onPress={() =>
           Linking.openURL("https://rotaryclubindaiatuba.wordpress.com/")
@@ -50,4 +50,11 @@ const styles = StyleSheet.create({
     marginBottom: 24,
     color: "#737380",
   },
+  title: {
+    marginTop: 8,
+    fontSize: 20,
+    marginBottom: 24,
+    color: "#737380",
+  }
+
 });
