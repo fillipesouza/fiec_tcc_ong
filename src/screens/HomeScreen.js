@@ -38,12 +38,12 @@ const HomeScreen = () => {
         <Image source={require("../../assets/cod.png")} style={styles.logo} />
 
         <View style={styles.firstContent}>
-          <Text style={styles.texto}> Email:{email}</Text>
+          <Text style={styles.texto}>{email}</Text>
         </View>
 
 
         <View style={styles.firstContent}>
-          <Text style={styles.texto}>"Conectando Ongs    e doadores"</Text>
+          <Text style={styles.texto}>"Conectando Ongs e doadores"</Text>
         </View>
 
         <View style={styles.firstContent}>
@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
   },
 
   firstContent: {
-    padding: 34,
+    padding: 10,
     borderRadius: 8,
     backgroundColor: "#FFF",
     marginBottom: 16,
