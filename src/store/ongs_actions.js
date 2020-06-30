@@ -16,8 +16,8 @@ export const loadOngs = () => {
         {
           id: "2",
           title: "TRIBOFUL DO BEM:",
-          description: ".....",
-          imageUrl: "",
+          description: "Um trabalho voluntário que busca ajudar entidades, através da solidariedade ",
+          imageUrl: "https://yt3.ggpht.com/a/AGF-l780DC62YMa88PkcXbNmpEVjylnWgOjZ3MNzGg=s900-c-k-c0xffffffff-no-rj-mo",
         },
       ],
     });

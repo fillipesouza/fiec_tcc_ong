@@ -58,6 +58,7 @@ export const CodNavigator = () => {
                   }}
                 >
                   <Text>Logout</Text>
+                  <Text></Text>
                   <MaterialIcons
                     name="exit-to-app"
                     color={"purple"}
@@ -125,8 +126,8 @@ const Main = () => {
         {!token ? (
           <Stack.Screen name="Entrar" component={LoginScreen} />
         ) : (
-          <Stack.Screen name="Cod" component={CodNavigator} />
-        )}
+            <Stack.Screen name="Cod" component={CodNavigator} />
+          )}
       </Stack.Navigator>
     </NavigationContainer>
   );
